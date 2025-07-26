@@ -39,7 +39,7 @@ h1 {
 <body>
 	<h1>📞Phonebook Management System</h1>
 	<div class="nav">
-		<a href="add_contact.jsp">Add Contact</a> <a href="view_contacts.jsp">View
+		<a href="add_contact.jsp">Add Contact</a> <a href="viewContacts">View
 			Contacts</a>
 	</div>
 </body>
