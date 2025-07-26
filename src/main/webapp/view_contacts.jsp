@@ -1,101 +1,69 @@
-<%@ page import="java.util.*, phonebook.model.Contact"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<!DOCTYPE html>
+<%@ page import="java.util.*, phonebook.model.Contact" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-<title>View Contacts</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	padding: 40px;
-	background-color: #f1f1f1;
-}
-
-table {
-	width: 90%;
-	margin: auto;
-	border-collapse: collapse;
-	background-color: white;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-th, td {
-	padding: 12px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-}
-
-th {
-	background-color: #007bff;
-	color: white;
-}
-
-a {
-	padding: 6px 12px;
-	text-decoration: none;
-	color: white;
-	border-radius: 4px;
-}
-
-.edit {
-	background-color: orange;
-}
-
-.delete {
-	background-color: red;
-}
-
-h2 {
-	text-align: center;
-	color: #333;
-}
-</style>
+    <title>All Contacts</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-	<h2>📋 All Contacts</h2>
+<h2 style="text-align:center;">Phonebook - Contact List</h2>
 
-	<table>
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Name</th>
-				<th>Phone</th>
-				<th>Email</th>
-				<th>Address</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-			List<Contact> contacts = (List<Contact>) request.getAttribute("contactList");
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
 
-			if (contacts != null && !contacts.isEmpty()) {
-				int i = 1;
-				for (Contact c : contacts) {
-			%>
-			<tr>
-				<td><%=i++%></td>
-				<td><%=c.getName()%></td>
-				<td><%=c.getPhone()%></td>
-				<td><%=c.getEmail()%></td>
-				<td><%=c.getAddress()%></td>
-				<td><a href="edit_contact.jsp?id=<%=c.getId()%>" class="edit">Edit</a>
-					<a href="ContactController?action=delete&id=<%=c.getId()%>"
-					class="delete">Delete</a></td>
-			</tr>
-			<%
-			}
-			} else {
-			%>
-			<tr>
-				<td colspan="6" style="text-align: center;">No contacts found.</td>
-			</tr>
-			<%
-			}
-			%>
-		</tbody>
-	</table>
+    <%
+        List<Contact> contacts = (List<Contact>) request.getAttribute("contacts");
+        if (contacts != null) {
+            for (Contact c : contacts) {
+    %>
+    <tr>
+        <td><%= c.getId() %></td>
+        <td><%= c.getName() %></td>
+        <td><%= c.getPhone() %></td>
+        <td><%= c.getEmail() %></td>
+        <td><%= c.getAddress() %></td>
+        <td>
+            <a href="editContact?id=<%= c.getId() %>">Edit</a> |
+            <a href="deleteContact?id=<%= c.getId() %>" onclick="return confirm('Are you sure to delete?')">Delete</a>
+        </td>
+    </tr>
+    <%
+            }
+        } else {
+    %>
+    <tr>
+        <td colspan="6">No contacts found.</td>
+    </tr>
+    <%
+        }
+    %>
+</table>
+
 </body>
 </html>

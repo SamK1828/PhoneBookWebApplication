@@ -1,60 +1,60 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="phonebook.model.Contact" %>
-<%
-    Contact contact = (Contact) request.getAttribute("contact");
-%>
-<!DOCTYPE html>
+<%@ page import="phonebook.model.Contact"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <title>Edit Contact</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: #f0f0f0;
-        }
-        .form-container {
-            background: white;
-            padding: 20px;
-            margin: 80px auto;
-            width: 400px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px gray;
-        }
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border: none;
-            width: 100%;
-            margin-top: 10px;
-        }
-    </style>
+<title>Edit Contact</title>
+<style>
+form {
+	width: 400px;
+	margin: 40px auto;
+	background: #f4f4f4;
+	padding: 20px;
+	border-radius: 8px;
+}
+
+h2 {
+	text-align: center;
+}
+
+input, textarea {
+	width: 100%;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+button {
+	margin-top: 15px;
+	padding: 10px;
+	width: 100%;
+	background: #28a745;
+	color: white;
+	border: none;
+	border-radius: 5px;
+}
+</style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>Edit Contact</h2>
-        <form action="updateContact" method="post">
-            <input type="hidden" name="id" value="<%= contact.getId() %>"/>
 
-            <label>Name:</label>
-            <input type="text" name="name" value="<%= contact.getName() %>" required />
+	<%
+    Contact contact = (Contact) request.getAttribute("contact");
+    if (contact != null) {
+%>
 
-            <label>Phone:</label>
-            <input type="text" name="phone" value="<%= contact.getPhone() %>" required />
+	<form action="updateContact" method="post">
+		<h2>Edit Contact</h2>
+		<input type="hidden" name="id" value="<%= contact.getId() %>" /> <input
+			type="text" name="name" value="<%= contact.getName() %>"
+			placeholder="Full Name" required /> <input type="text" name="phone"
+			value="<%= contact.getPhone() %>" placeholder="Phone Number" required />
+		<input type="email" name="email" value="<%= contact.getEmail() %>"
+			placeholder="Email Address" required />
+		<textarea name="address" rows="4" placeholder="Address"><%= contact.getAddress() %></textarea>
+		<button type="submit">Update Contact</button>
+	</form>
 
-            <label>Email:</label>
-            <input type="email" name="email" value="<%= contact.getEmail() %>" required />
+	<% } else { %>
+	<h2 style="text-align: center; color: red;">Contact not found!</h2>
+	<% } %>
 
-            <label>Address:</label>
-            <input type="text" name="address" value="<%= contact.getAddress() %>" required />
-
-            <input type="submit" value="Update Contact" />
-        </form>
-    </div>
 </body>
 </html>
