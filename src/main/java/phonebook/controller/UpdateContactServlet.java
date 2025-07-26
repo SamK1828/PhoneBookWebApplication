@@ -35,7 +35,9 @@ public class UpdateContactServlet extends HttpServlet {
             boolean updated = contactService.updateContact(contact);
 
             if (updated) {
-                response.sendRedirect("viewContacts");
+//                response.sendRedirect("/viewContacts");
+            	response.sendRedirect(request.getContextPath() + "/viewContacts");
+
             } else {
                 response.sendRedirect("edit_contact.jsp?id=" + id);
             }

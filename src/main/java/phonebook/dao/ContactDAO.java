@@ -77,6 +77,9 @@ public class ContactDAO {
 			while (rs.next()) {
 				list.add(new Contact(rs.getInt("id"), rs.getString("name"), rs.getString("phone"),
 						rs.getString("email"), rs.getString("address")));
+
+				System.out.println(rs.getInt("id") + rs.getString("name") + rs.getString("phone")
+						+ rs.getString("email") + rs.getString("address"));
 			}
 
 		} catch (Exception e) {
