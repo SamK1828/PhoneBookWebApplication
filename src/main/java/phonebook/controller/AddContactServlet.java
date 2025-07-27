@@ -17,10 +17,10 @@ public class AddContactServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// Fetch form data
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
+		String name = request.getParameter("cname");
+		String phone = request.getParameter("cphone");
+		String email = request.getParameter("cemail");
+		String address = request.getParameter("caddress");
 
 		// Populate model
 		Contact contact = new Contact();
