@@ -51,7 +51,7 @@ PhonebookWebApp/
 ## 🧑‍💻 Collaborators
 
 - **Samarth Kalegaonkar** – Backend Developer  
-- **[Collaborator Name]** – Frontend Developer
+- **Sanchita Patil** – Frontend Developer
 
 ---
 
@@ -112,7 +112,7 @@ String password = "yourPassword";
 For queries or suggestions:
 
 * Samarth Kalegaonkar – [kalegaonkarsamarth@gmail.com](mailto:kalegaonkarsamarth@gmail.com)
-* Collaborator – \[add collaborator email if required]
+* Sanchita Patil 
 
 ---
 
