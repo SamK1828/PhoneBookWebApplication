@@ -112,7 +112,7 @@ String password = "yourPassword";
 For queries or suggestions:
 
 * Samarth Kalegaonkar – [kalegaonkarsamarth@gmail.com](mailto:kalegaonkarsamarth@gmail.com)
-* Sanchita Patil 
+* Sanchita Patil - [patilsanchita2004@gmail.com](mailto:patilsanchita2004@gmail.com)
 
 ---
 
