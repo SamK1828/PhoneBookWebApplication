@@ -37,8 +37,8 @@ PhonebookWebApp/
 │       ├── model/            # POJO class (Contact.java)
 │       └── service/          # Business logic layer
 ├── WebContent/
-│   ├── add\_contact.jsp
-│   ├── view\_contacts.jsp
+│   ├── add_contact.jsp
+│   ├── view_contacts.jsp
 │   ├── dashboard.jsp
 │   └── ...
 ├── lib/                      # JDBC driver (MySQL Connector)
@@ -81,13 +81,13 @@ String password = "yourPassword";
 ```
 
 ---
-
+<!--
 ## 📸 Screenshots
 
 > Add screenshots of your Dashboard, Add Contact Form, and Contact List if available.
 
 ---
-
+-->
 ## 📁 How to Run (Eclipse)
 
 1. Clone the repository:
